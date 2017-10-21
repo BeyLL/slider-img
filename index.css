@@ -58,6 +58,7 @@ a {
     height: 0;
     border: 15px solid #ddffd5;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 #banner ul li.active {
