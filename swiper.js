@@ -76,17 +76,17 @@ $(function () {
         distance = parseFloat($oDiv.css('left'));
         if (distance === 0) {
             distance = -boxW + 790;
-            step = $oLis.length-1;
-            $oLis.last().attr('class','active');
-            $oLis.last().siblings().attr('class','')
+            step = $oLis.length - 1;
+            $oLis.last().attr('class', 'active');
+            $oLis.last().siblings().attr('class', '')
 
         } else if (distance < 0) {
             distance += 790;
             step--;
-            $oLis.each(function(){
-                if($(this).index()===step){
-                    $(this).attr('class','active');
-                    $(this).siblings().attr('class','')
+            $oLis.each(function () {
+                if ($(this).index() === step) {
+                    $(this).attr('class', 'active');
+                    $(this).siblings().attr('class', '')
                 }
             })
         }
@@ -100,16 +100,16 @@ $(function () {
         distance = parseFloat($oDiv.css('left'));
         if (distance === -boxW + 790) {
             distance = 0;
-            step=0;
-            $oLis.first().attr('class','active');
-            $oLis.first().siblings().attr('class','')
+            step = 0;
+            $oLis.first().attr('class', 'active');
+            $oLis.first().siblings().attr('class', '')
         } else if (distance <= 0) {
             distance -= 790;
             step++;
-            $oLis.each(function(){
-                if($(this).index()===step){
-                    $(this).attr('class','active');
-                    $(this).siblings().attr('class','')
+            $oLis.each(function () {
+                if ($(this).index() === step) {
+                    $(this).attr('class', 'active');
+                    $(this).siblings().attr('class', '')
                 }
 
             })
@@ -117,13 +117,15 @@ $(function () {
         $oDiv.animate({left: distance}, 'fast')
     });
     //点击分页器
-    $oLis.each(function(){
-        $(this).click(function(){
-            $(this).attr('class','active');
-            $(this).siblings().attr('class','');
-           step = $(this).index();
-
-
+    $oLis.each(function () {
+        $(this).click(function () {
+            $(this).attr('class', 'active');
+            $(this).siblings().attr('class', '');
+            step = $(this).index();
+            if(step===0){
+                $oDiv.animate({left:0},'fast')
+            }
+            $oDiv.animate({left:-790*step},'fast')
         })
     })
 });
